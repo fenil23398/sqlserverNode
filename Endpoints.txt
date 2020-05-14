@@ -1,0 +1,1 @@
+To fetch Expenses : http://localhost:3000/expenses

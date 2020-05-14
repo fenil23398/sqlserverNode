@@ -13,15 +13,27 @@ var config = {
     options: {
         "encrypt": true,
         "enableArithAbort": true
-      },
+    },
     port : 49170
 }
 
 var connection =  db.connect(config,function(err){
     if(err)
         console.log("Error In Connection To Database",err)
-    else    
+    else {   
         console.log("Successfully Connected");
+        var request  = new db.Request();
+        request.query('select * from trackExpenses', function (err, recordset) {
+            
+            if (err) 
+                console.log(err)
+
+            // send records as a response
+            else
+                console.log(recordset);
+            
+        });
+    }
 })
 
 module.exports = connection;
