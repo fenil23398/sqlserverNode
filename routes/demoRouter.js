@@ -12,4 +12,15 @@ router.get('/',function(req,res,next){
     })
 })
 
+router.post('/',function(req,res){
+    Demo.addExpenses(req.body)
+    .then(rows => {
+        console.log("Successfully added",rows);
+        res.json(rows);
+    })
+    .catch(err=>{
+        console.log("Errror While Adding Data",err)
+    })
+})
+
 module.exports = router;
